@@ -1,0 +1,32 @@
+INSTRUCTION: I didn't implemented the discord version of the bot you can load the bot in the
+shell easily as soon as you run the file just start the chat() function and you can start asking questions
+
+VECTOR REPRESENTATION: For the intent matching I used the CountVectorizer with the parameters of 
+stop words and max_df it was better than other parameters becuause i wanted to reduce the number of 
+time words like ahmedabad, places, food which appear in my questions a lot so i put max_df for that and 
+stop words helped me to reduce the verbs like is,are,the,and so on such that my vocubalary
+was reduced and my vectorizer only focused on the unique and important words I tried to use the other 
+parameters as well but it didn't helped that much as in my each questions seems to have some unique words 
+thats why using ngram was of no use and even added alot of synonyms of my unique words in my question catalouge
+such that even only few words matches the cosine similarity was higher than 0.57
+
+I used setiments.py to determine the tone of the utterance and for the classifier i used the ComplementNB
+because it was able to give an accuracy of 83% i tried passing all the different parameters and even tried
+to use the Tfidfvectorizer as well but it was of no use either way i was only able to reach a accuracy no more than 83%   
+
+TRANSFER LEARNING: I used the GPT3 transformer api for the question which where not triggered
+by the intent matching and then generate the response from the transformer those response will
+start with "I am not 100% sure about this but the answer may be:"
+
+
+THINGS TO TRY:
+utterance: president of india
+utterance: explain something?
+utterance: where is ahmedabad situated
+utterance: what the hell
+utterance: you are a good bot
+utterance: independence of india
+utterance: mention me the big cities of ahmedabad
+utterance: which religion is mostly followed in ahmedabad
+utterance: most common language in ahmedabad
+utterance: best food to try in ahmedabad
